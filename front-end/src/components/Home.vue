@@ -46,7 +46,7 @@ export default {
     font-size: 17px;
   }
   #personal-card {
-    border: solid;
+    /* border: solid; */
     margin: 0% 25% 0% 25%;
     z-index: 100;
   }

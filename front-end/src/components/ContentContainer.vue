@@ -15,13 +15,14 @@ export default {
 
 <style>
   #content-container {
-    border: dashed;
+    /* border: dashed; */
     padding: 200px 0 0 0;
-    top: -150px;
+    top: -135px;
     position: relative;
     background-color: azure;
     margin: 10px;
     border-radius: 20px;
     z-index: -1;
+    box-shadow: 1px 1px 10px grey;
   }
 </style>
