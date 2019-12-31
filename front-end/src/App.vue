@@ -27,4 +27,16 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+} */
 </style>
