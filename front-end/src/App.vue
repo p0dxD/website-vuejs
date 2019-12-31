@@ -6,7 +6,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 import Navigation from './components/Navigation'
+Vue.use(Buefy)
 export default {
   name: 'app',
   components: {
