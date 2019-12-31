@@ -17,7 +17,11 @@ export default {
   #content-container {
     border: dashed;
     padding: 200px 0 0 0;
-    top: -100px;
+    top: -150px;
     position: relative;
+    background-color: azure;
+    margin: 10px;
+    border-radius: 20px;
+    z-index: -1;
   }
 </style>

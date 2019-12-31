@@ -1,7 +1,12 @@
 <template>
   <div>
-    <span class="dot"></span>
-    <h4 class="name-title">Software Engineer</h4>
+    <div id="personal-card">
+      <span class="dot"></span>
+      <h4 class="name-title">Software Engineer</h4>
+      <font-awesome-icon :icon="['fab', 'github']" />
+      <font-awesome-icon :icon="['fab', 'instagram']" />
+      <font-awesome-icon :icon="['fab', 'linkedin']" />
+    </div>
     <ContentContainer/>
   </div>
 </template>
@@ -28,15 +33,71 @@ export default {
   .dot {
     height: 200px;
     width: 200px;
-    background-image: url("https://www.pngkey.com/png/detail/10-109089_google-logo-png-transparent-google-logo-round-png.png");
+    background-image: url("https://media.licdn.com/dms/image/C4E03AQGLKKA9_d_GaQ/profile-displayphoto-shrink_200_200/0?e=1583366400&v=beta&t=TS_C_E9vBdwWdNnDcHTJQqdNf8vkB4-zJlSPoqy3J-M");
     border-radius: 50%;
     display: inline-block;
     background-size: 200px 200px;
+    box-shadow: 1px 1px 10px grey;
   }
   .name-title {
     letter-spacing: 3px;
     text-transform: capitalize;
     padding: 10px;
+    font-size: 17px;
+  }
+  #personal-card {
+    border: solid;
+    margin: 0% 25% 0% 25%;
+    z-index: 100;
+  }
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .dot {
+    height: 180px;
+    width: 180px;
+    background-size: 180px 180px;
+  }
+  .name-title {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 550px) {
+  .dot {
+    height: 160px;
+    width: 160px;
+    background-size: 160px 160px;
+  }
+  .name-title {
     font-size: 15px;
   }
+}
+@media screen and (max-width: 550px) and (min-width: 540px) {
+  .dot {
+    height: 140px;
+    width: 140px;
+    background-size: 140px 140px;
+  }
+  .name-title {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 540px) and (min-width: 470px) {
+  .dot {
+    height: 120px;
+    width: 120px;
+    background-size: 120px 120px;
+  }
+  .name-title {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 469px) {
+  .dot {
+    height: 110px;
+    width: 110px;
+    background-size: 110px 110px;
+  }
+  .name-title {
+    font-size: 12px;
+  }
+}
 </style>
