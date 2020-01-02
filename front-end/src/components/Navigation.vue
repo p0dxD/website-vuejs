@@ -98,6 +98,10 @@ export default {
     border-left: none;
     border-right: none;
 }
+#container {
+  padding-bottom: 4em;
+}
+
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .name {
     font-size: 20px;
