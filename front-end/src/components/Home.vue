@@ -1,11 +1,12 @@
 <template>
   <div>
+    <div class="home_image"></div>
     <div id="personal-card">
       <span class="dot"></span>
       <h4 class="name-title">Software Engineer</h4>
-      <font-awesome-icon :icon="['fab', 'github']" />
-      <font-awesome-icon :icon="['fab', 'instagram']" />
-      <font-awesome-icon :icon="['fab', 'linkedin']" />
+      <a href="https://github.com/p0dxD"><font-awesome-icon :icon="['fab', 'github']" :size=icons_size /></a>
+      <a href="https://www.instagram.com/p0doi/"><font-awesome-icon :icon="['fab', 'instagram']" :size=icons_size /></a>
+      <a href="https://www.linkedin.com/in/jose-rodriguez-p0dxd/"><font-awesome-icon :icon="['fab', 'linkedin']" :size=icons_size /></a>
     </div>
     <ContentContainer/>
   </div>
@@ -18,9 +19,31 @@ export default {
   components: {
     'ContentContainer': ContentContainer
   },
+  data () {
+    return {
+      icons_size: '2x'
+    }
+  },
+  created () {
+    window.addEventListener('resize', this.sizeHandler)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.sizeHandler)
+  },
+  mounted () {
+    this.sizeHandler('test')
+  },
   methods: {
     clickMe () {
       this.$buefy.notification.open('I do not do anything just testing!!')
+    },
+    sizeHandler (e) {
+      var w = window.innerWidth
+      if (w < 540) {
+        this.icons_size = '1x'
+      } else {
+        this.icons_size = '2x'
+      }
     }
   }
 }
@@ -50,6 +73,16 @@ export default {
     margin: 0% 25% 0% 25%;
     z-index: 100;
   }
+.home_image {
+    border: dashed;
+    z-index: -10;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 79px;
+    background-image: url(https://demos.creative-tim.com/vue-material-kit-pro/img/city-profile.3b3fb65f.jpg);
+}
+
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .dot {
     height: 180px;

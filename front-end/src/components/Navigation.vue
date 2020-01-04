@@ -49,16 +49,16 @@ export default {
     }
   },
   created () {
-    window.addEventListener('resize', this.myEventHandler)
+    window.addEventListener('resize', this.sizeHandler)
   },
   destroyed () {
-    window.removeEventListener('resize', this.myEventHandler)
+    window.removeEventListener('resize', this.sizeHandler)
   },
   mounted () {
-    this.myEventHandler('test')
+    this.sizeHandler('test')
   },
   methods: {
-    myEventHandler (e) {
+    sizeHandler (e) {
       var w = window.innerWidth
       if (w < 469) {
         this.nav_position = 'is-centered'
