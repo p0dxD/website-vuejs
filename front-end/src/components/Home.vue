@@ -9,11 +9,16 @@
       <a href="https://www.linkedin.com/in/jose-rodriguez-p0dxd/"><font-awesome-icon :icon="['fab', 'linkedin']" :size=icons_size /></a>
     </div>
     <ContentContainer/>
+    {{ info }}
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import ContentContainer from './ContentContainer'
+Vue.use(VueAxios, axios)
 export default {
   name: 'Home',
   components: {
@@ -21,7 +26,8 @@ export default {
   },
   data () {
     return {
-      icons_size: '2x'
+      icons_size: '2x',
+      info: null
     }
   },
   created () {
@@ -32,6 +38,7 @@ export default {
   },
   mounted () {
     this.sizeHandler('test')
+    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(response => (this.info = response))
   },
   methods: {
     clickMe () {
