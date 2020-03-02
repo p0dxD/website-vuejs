@@ -5,12 +5,15 @@ import java.util.Collections;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -21,18 +24,39 @@ import java.util.Map;
 // import org.json.simple.JSONArray; 
 // import org.json.simple.JSONObject;
 
+import com.google.gson.Gson;
 import com.joserod.space.websitebackend.pojos.Project;
 
 @RestController
+@Configuration
 public class WebsiteApi {
-	private static ArrayList<Project> projects;
+
+	@Value("${GITHUB_TOKEN}")
+	private String githubToken;
 	
+	private ArrayList<Project> projects;
+	
+	@CrossOrigin
 	@GetMapping(value="/hello")
 	public String hello() {
 		String url = "https://api.github.com/users/p0dxD/repos";
 		String result = makeAPIcall(url);
 		printJsonAndSaveObject(result, false);
-		return "ok";
+
+
+		// StringBuilder sb = new StringBuilder();
+		// for (Project s : projects)
+		// {
+		// 	sb.append(s.toString());
+		// 	sb.append("\n");
+		// }
+		
+		// System.out.println(sb.toString());
+
+		Gson gson = new Gson();
+		
+		String json = gson.toJson(projects);
+		return json;
 	}
 
 	@GetMapping(value="/refreshProjects")
@@ -43,7 +67,7 @@ public class WebsiteApi {
 		return "refreshed";
 	}
 
-	public static void printJsonAndSaveObject(String jsonObj, boolean refresh) {
+	public void printJsonAndSaveObject(String jsonObj, boolean refresh) {
 		if (projects == null || refresh ) {
 			projects = new ArrayList<>();
 		} else {
@@ -68,7 +92,7 @@ public class WebsiteApi {
 
 	}
 
-	private static ArrayList<String> makeLanguageList(String languages) {
+	private ArrayList<String> makeLanguageList(String languages) {
 		ArrayList<String> languageArray = new ArrayList<>();
 		if (languages.equals("[{}]")) {
 			return languageArray;
@@ -86,12 +110,12 @@ public class WebsiteApi {
 		return languageArray;
 	}
 
-	private static String makeAPIcall(String url) {
+	private String makeAPIcall(String url) {
 		RestTemplate restTemplate = new RestTemplate();
 	
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Accept", "application/vnd.github.mercy-preview+json");  
-		headers.set("Authorization", "token TOKEN");
+		headers.set("Authorization", "token " + githubToken);
 
 		// build the request
 		HttpEntity request = new HttpEntity(headers);
