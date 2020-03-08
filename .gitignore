@@ -51,3 +51,4 @@ out/
 
 ### backend
 back-end/bin/
+back-end/src/main/resources/keystore/*

@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:49160/api/hello', {
+    axios.get('https://joserod.space:49160/api/hello', {
       headers: {
         Authorization: 'Basic dGVzdDpwYXNzd29yZA==' //  the token is a variable which holds the token
       }

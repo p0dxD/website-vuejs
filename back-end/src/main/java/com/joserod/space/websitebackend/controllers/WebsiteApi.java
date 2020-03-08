@@ -6,7 +6,9 @@ import java.util.Collections;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,10 +19,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
 // import org.json.simple.JSONArray; 
 // import org.json.simple.JSONObject;
 
@@ -35,27 +33,20 @@ public class WebsiteApi {
 	private String githubToken;
 	
 	private ArrayList<Project> projects;
+
+	private String json;
 	
-	@CrossOrigin
+	@EventListener(ApplicationReadyEvent.class)
+	public void doSomethingAfterStartup() {
+		System.out.println("hello world, I have just started up");
+		refreshProjects();
+	}
+
 	@GetMapping(value="/hello")
 	public String hello() {
 		String url = "https://api.github.com/users/p0dxD/repos";
 		String result = makeAPIcall(url);
 		printJsonAndSaveObject(result, false);
-
-
-		// StringBuilder sb = new StringBuilder();
-		// for (Project s : projects)
-		// {
-		// 	sb.append(s.toString());
-		// 	sb.append("\n");
-		// }
-		
-		// System.out.println(sb.toString());
-
-		Gson gson = new Gson();
-		
-		String json = gson.toJson(projects);
 		return json;
 	}
 
@@ -85,11 +76,13 @@ public class WebsiteApi {
 			String dateCreated = tmp.getString("created_at");
 			String dateLastUpdated = tmp.getString("updated_at");
 			ArrayList<String> languages = makeLanguageList("["+makeAPIcall(url+tmp.getString("full_name")+"/languages")+"]");
+			name = name.contains("p0dxD/") ? name.substring("p0dxD/".length()) : name;
 			Project project = new Project( name,  html_url,  dateCreated,  dateLastUpdated, languages);
-			System.out.println(project);
 			projects.add(project);
 		  }
-
+		  //construct it, first time we have it
+		  Gson gson = new Gson();
+		  json = gson.toJson(projects);
 	}
 
 	private ArrayList<String> makeLanguageList(String languages) {
