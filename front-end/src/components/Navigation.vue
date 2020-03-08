@@ -2,9 +2,7 @@
   <div id="container">
     <nav>
       <div class="name"><h1>Jose Rodriguez</h1></div>
-       <b-tabs type="is-boxed" position="is-right" class="block">
-      <!-- <router-link class="route_names spacing" v-for="routes in links" v-bind:key="routes.id" :to="`${routes.page}`"> -->
-        <!-- {{routes.text}} -->
+       <b-tabs type="is-boxed" :position=nav_position class="block">
         <b-tab-item>
             <template slot="header">
                  <router-link  id="route_names" v-bind:key="0" :to="`/Home`"><b-icon icon="home"></b-icon><span class="route_text">Home</span></router-link>
@@ -20,8 +18,7 @@
                   <router-link  id="route_names" v-bind:key="2" :to="`/Contact`"> <b-icon icon="account"></b-icon><span class="route_text">Contact</span></router-link>
             </template>
         </b-tab-item>
-        <!-- </router-link> -->
-         </b-tabs>
+      </b-tabs>
     </nav>
   </div>
 </template>
@@ -31,6 +28,7 @@ export default {
   name: 'Navigation',
   data () {
     return {
+      nav_position: 'is-centered',
       links: [
         {
           id: 0,
@@ -48,6 +46,25 @@ export default {
           page: '/Contact'
         }
       ]
+    }
+  },
+  created () {
+    window.addEventListener('resize', this.sizeHandler)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.sizeHandler)
+  },
+  mounted () {
+    this.sizeHandler('test')
+  },
+  methods: {
+    sizeHandler (e) {
+      var w = window.innerWidth
+      if (w < 469) {
+        this.nav_position = 'is-centered'
+      } else {
+        this.nav_position = 'is-right'
+      }
     }
   }
 }
@@ -81,6 +98,10 @@ export default {
     border-left: none;
     border-right: none;
 }
+#container {
+  padding-bottom: 4em;
+}
+
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .name {
     font-size: 20px;
@@ -112,11 +133,20 @@ export default {
     display: none;
   }
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) and (min-width: 470px) {
   .name {
+    text-indent: 20px;
     font-size: 15px;
-    text-indent: 15px;
     top: 45px;
+  }
+  .route_text {
+    visibility: hidden;
+    display: none;
+  }
+}
+@media screen and (max-width: 469px) {
+  .name {
+    visibility: hidden;
   }
   .route_text {
     visibility: hidden;
