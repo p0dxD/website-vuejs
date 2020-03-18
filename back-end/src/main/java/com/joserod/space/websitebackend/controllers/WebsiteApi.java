@@ -44,7 +44,7 @@ public class WebsiteApi {
 
 	@GetMapping(value="/hello")
 	public String hello() {
-		String url = "https://api.github.com/users/p0dxD/repos";
+		String url = "https://api.github.com/users/p0dxD/repos?sort=updated";
 		String result = makeAPIcall(url);
 		printJsonAndSaveObject(result, false);
 		return json;
@@ -52,7 +52,7 @@ public class WebsiteApi {
 
 	@GetMapping(value="/refreshProjects")
 	public String refreshProjects() {
-		String url = "https://api.github.com/users/p0dxD/repos";
+		String url = "https://api.github.com/users/p0dxD/repos?sort=updated";
 		String result = makeAPIcall(url);
 		printJsonAndSaveObject(result, true);
 		return "refreshed";
