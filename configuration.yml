@@ -5,8 +5,8 @@ projects:
         version: 1.0.0
         stages:
             build:
-                tool: npm
-                version: 6.13.4
+                tool: node
+                version: latest
             upload:
                 tool: docker
                 version: ~
