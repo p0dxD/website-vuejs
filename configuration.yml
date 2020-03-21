@@ -21,4 +21,3 @@ projects:
             upload:
                 tool: docker
                 version: ~
-

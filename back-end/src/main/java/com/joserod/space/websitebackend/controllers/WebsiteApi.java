@@ -1,8 +1,6 @@
 package com.joserod.space.websitebackend.controllers;
 
 import java.util.ArrayList;
-import java.util.Collections;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;

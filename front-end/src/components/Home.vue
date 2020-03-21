@@ -4,11 +4,17 @@
     <div id="personal-card">
       <span class="dot"></span>
       <h4 class="name-title">Software Engineer</h4>
-      <a href="https://github.com/p0dxD"><font-awesome-icon :icon="['fab', 'github']" :size=icons_size /></a>
-      <a href="https://www.instagram.com/p0doi/"><font-awesome-icon :icon="['fab', 'instagram']" :size=icons_size /></a>
-      <a href="https://www.linkedin.com/in/jose-rodriguez-p0dxd/"><font-awesome-icon :icon="['fab', 'linkedin']" :size=icons_size /></a>
+      <a href="https://github.com/p0dxD">
+        <font-awesome-icon :icon="['fab', 'github']" :size="icons_size" />
+      </a>
+      <a href="https://www.instagram.com/p0doi/">
+        <font-awesome-icon :icon="['fab', 'instagram']" :size="icons_size" />
+      </a>
+      <a href="https://www.linkedin.com/in/jose-rodriguez-p0dxd/">
+        <font-awesome-icon :icon="['fab', 'linkedin']" :size="icons_size" />
+      </a>
     </div>
-    <ContentContainer/>
+    <ContentContainer />
     <!-- {{ info }} -->
   </div>
 </template>
@@ -17,27 +23,27 @@
 // import Vue from 'vue'
 // import axios from 'axios'
 // import VueAxios from 'vue-axios'
-import ContentContainer from './ContentContainer'
+import ContentContainer from "./ContentContainer";
 // Vue.use(VueAxios, axios)
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    'ContentContainer': ContentContainer
+    ContentContainer: ContentContainer
   },
-  data () {
+  data() {
     return {
-      icons_size: '2x'
+      icons_size: "2x"
       // info: null
-    }
+    };
   },
-  created () {
-    window.addEventListener('resize', this.sizeHandler)
+  created() {
+    window.addEventListener("resize", this.sizeHandler);
   },
-  destroyed () {
-    window.removeEventListener('resize', this.sizeHandler)
+  destroyed() {
+    window.removeEventListener("resize", this.sizeHandler);
   },
-  mounted () {
-    this.sizeHandler('test')
+  mounted() {
+    this.sizeHandler("test");
     // axios.get('http://joserod.space:49160/api/hello', {
     //   headers: {
     //     Authorization: 'Basic dGVzdDpwYXNzd29yZA==' //  the token is a variable which holds the token
@@ -46,53 +52,53 @@ export default {
     // axios.get('http://joserod.space:49160/api/hello').then(response => (this.info = response))
   },
   methods: {
-    clickMe () {
-      this.$buefy.notification.open('I do not do anything just testing!!')
+    clickMe() {
+      this.$buefy.notification.open("I do not do anything just testing!!");
     },
-    sizeHandler (e) {
-      var w = window.innerWidth
+    sizeHandler(e) {
+      var w = window.innerWidth;
       if (w < 540) {
-        this.icons_size = '1x'
+        this.icons_size = "1x";
       } else {
-        this.icons_size = '2x'
+        this.icons_size = "2x";
       }
     }
   }
-}
+};
 </script>
 
 <style>
-  small {
-    display: block;
-  }
-  .dot {
-    height: 200px;
-    width: 200px;
-    background-image: url("https://media.licdn.com/dms/image/C4E03AQGLKKA9_d_GaQ/profile-displayphoto-shrink_200_200/0?e=1583366400&v=beta&t=TS_C_E9vBdwWdNnDcHTJQqdNf8vkB4-zJlSPoqy3J-M");
-    border-radius: 50%;
-    display: inline-block;
-    background-size: 200px 200px;
-    box-shadow: 1px 1px 10px grey;
-  }
-  .name-title {
-    letter-spacing: 3px;
-    text-transform: capitalize;
-    padding: 10px;
-    font-size: 17px;
-  }
-  #personal-card {
-    /* border: solid; */
-    margin: 0% 25% 0% 25%;
-    z-index: 100;
-  }
+small {
+  display: block;
+}
+.dot {
+  height: 200px;
+  width: 200px;
+  background-image: url("https://media.licdn.com/dms/image/C4E03AQGLKKA9_d_GaQ/profile-displayphoto-shrink_200_200/0?e=1583366400&v=beta&t=TS_C_E9vBdwWdNnDcHTJQqdNf8vkB4-zJlSPoqy3J-M");
+  border-radius: 50%;
+  display: inline-block;
+  background-size: 200px 200px;
+  box-shadow: 1px 1px 10px grey;
+}
+.name-title {
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  padding: 10px;
+  font-size: 17px;
+}
+#personal-card {
+  /* border: solid; */
+  margin: 0% 25% 0% 25%;
+  z-index: 100;
+}
 .home_image {
-    border: dashed;
-    z-index: -10;
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    top: 79px;
-    background-image: url(https://demos.creative-tim.com/vue-material-kit-pro/img/city-profile.3b3fb65f.jpg);
+  border: dashed;
+  z-index: -10;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 79px;
+  background-image: url(https://demos.creative-tim.com/vue-material-kit-pro/img/city-profile.3b3fb65f.jpg);
 }
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
