@@ -16,7 +16,6 @@ public class Project {
         this.dateLastUpdated = dateLastUpdated;
         this.languages = languages;
     }
-
     
     public String getName() {
         return this.name;

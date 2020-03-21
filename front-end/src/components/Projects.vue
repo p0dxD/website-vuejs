@@ -44,6 +44,7 @@ import 'vue-material/dist/vue-material.min.css'
 Vue.use(VueMaterial)
 
 Vue.use(VueAxios, axios)
+
 export default {
   name: 'Projects',
   data () {
