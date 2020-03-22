@@ -36,49 +36,49 @@
 
 <script>
 export default {
-  name: "Navigation",
-  data() {
+  name: 'Navigation',
+  data () {
     return {
-      nav_position: "is-centered",
+      nav_position: 'is-centered',
       links: [
         {
           id: 0,
-          text: "Home",
-          page: "/Home"
+          text: 'Home',
+          page: '/Home'
         },
         {
           id: 1,
-          text: "Projects",
-          page: "/Projects"
+          text: 'Projects',
+          page: '/Projects'
         },
         {
           id: 2,
-          text: "Contact",
-          page: "/Contact"
+          text: 'Contact',
+          page: '/Contact'
         }
       ]
-    };
+    }
   },
-  created() {
-    window.addEventListener("resize", this.sizeHandler);
+  created () {
+    window.addEventListener('resize', this.sizeHandler)
   },
-  destroyed() {
-    window.removeEventListener("resize", this.sizeHandler);
+  destroyed () {
+    window.removeEventListener('resize', this.sizeHandler)
   },
-  mounted() {
-    this.sizeHandler("test");
+  mounted () {
+    this.sizeHandler('test')
   },
   methods: {
-    sizeHandler(e) {
-      var w = window.innerWidth;
+    sizeHandler (e) {
+      var w = window.innerWidth
       if (w < 469) {
-        this.nav_position = "is-centered";
+        this.nav_position = 'is-centered'
       } else {
-        this.nav_position = "is-right";
+        this.nav_position = 'is-right'
       }
     }
   }
-};
+}
 </script>
 
 <style>

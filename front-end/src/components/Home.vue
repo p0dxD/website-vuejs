@@ -23,27 +23,27 @@
 // import Vue from 'vue'
 // import axios from 'axios'
 // import VueAxios from 'vue-axios'
-import ContentContainer from "./ContentContainer";
+import ContentContainer from './ContentContainer'
 // Vue.use(VueAxios, axios)
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     ContentContainer: ContentContainer
   },
-  data() {
+  data () {
     return {
-      icons_size: "2x"
+      icons_size: '2x'
       // info: null
-    };
+    }
   },
-  created() {
-    window.addEventListener("resize", this.sizeHandler);
+  created () {
+    window.addEventListener('resize', this.sizeHandler)
   },
-  destroyed() {
-    window.removeEventListener("resize", this.sizeHandler);
+  destroyed () {
+    window.removeEventListener('resize', this.sizeHandler)
   },
-  mounted() {
-    this.sizeHandler("test");
+  mounted () {
+    this.sizeHandler('test')
     // axios.get('http://joserod.space:49160/api/hello', {
     //   headers: {
     //     Authorization: 'Basic dGVzdDpwYXNzd29yZA==' //  the token is a variable which holds the token
@@ -52,19 +52,19 @@ export default {
     // axios.get('http://joserod.space:49160/api/hello').then(response => (this.info = response))
   },
   methods: {
-    clickMe() {
-      this.$buefy.notification.open("I do not do anything just testing!!");
+    clickMe () {
+      this.$buefy.notification.open('I do not do anything just testing!!')
     },
-    sizeHandler(e) {
-      var w = window.innerWidth;
+    sizeHandler (e) {
+      var w = window.innerWidth
       if (w < 540) {
-        this.icons_size = "1x";
+        this.icons_size = '1x'
       } else {
-        this.icons_size = "2x";
+        this.icons_size = '2x'
       }
     }
   }
-};
+}
 </script>
 
 <style>
