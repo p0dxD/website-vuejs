@@ -44,12 +44,6 @@ export default {
   },
   mounted () {
     this.sizeHandler('test')
-    // axios.get('http://joserod.space:49160/api/hello', {
-    //   headers: {
-    //     Authorization: 'Basic dGVzdDpwYXNzd29yZA==' //  the token is a variable which holds the token
-    //   }
-    // }).then(response => (this.info = response))
-    // axios.get('http://joserod.space:49160/api/hello').then(response => (this.info = response))
   },
   methods: {
     clickMe () {
