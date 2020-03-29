@@ -63,6 +63,7 @@ class KeyStoreConfiguration {
         }
         final String fileType = System.getenv(FILE_TYPE);
         byte[] jks = Base64Utils.decodeFromString(encodedJks);
+        System.out.println("Got here");
         try {
             String location = Paths.get(dir, envVar.toLowerCase()) + "." + fileType;
             try (OutputStream stream = new FileOutputStream(location)) {
