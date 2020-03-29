@@ -46,6 +46,11 @@ class KeyStoreConfiguration {
      */
     static void setJKSKeystore(String envVar, String systemProperty, String passwordEnvVar, String systemPasswordProperty, String fileType) {
         final String encodedJks = System.getenv(envVar);
+        System.out.println("KEYSTORE_VAR: " + envVar);
+        System.out.println("JAVA_KEYSTORE_PROPERTY: " + systemProperty);
+        System.out.println("KEYSTORE_PASSWORD_VAR: " + passwordEnvVar);
+        System.out.println("JAVA_KEYSTORE_PASSWORD_PROPERTY: " + systemPasswordProperty);
+        System.out.println("FILE_TYPE: " + fileType);
         if (StringUtils.isEmpty(encodedJks)) {
             logger.info("No " + envVar + " environment variable defined");
             return;
@@ -56,10 +61,10 @@ class KeyStoreConfiguration {
         if (StringUtils.isEmpty(dir)) {
             dir = "/home/vcap/";
         }
-
+        final String fileTypeEnding = System.getenv(fileType);
         byte[] jks = Base64Utils.decodeFromString(encodedJks);
         try {
-            String location = Paths.get(dir, envVar.toLowerCase()) + "." + fileType;
+            String location = Paths.get(dir, envVar.toLowerCase()) + "." + fileTypeEnding;
             try (OutputStream stream = new FileOutputStream(location)) {
                 stream.write(jks);
             }
