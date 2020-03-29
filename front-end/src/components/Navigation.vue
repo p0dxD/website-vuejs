@@ -7,7 +7,7 @@
       <b-tabs type="is-boxed" :position="nav_position" class="block">
         <b-tab-item>
           <template slot="header">
-            <router-link id="route_names" v-bind:key="0" :to="`/Home`">
+            <router-link id="route_names" v-bind:key="0" :to="`/home`">
               <b-icon icon="home"></b-icon>
               <span class="route_text">Home</span>
             </router-link>
@@ -15,7 +15,7 @@
         </b-tab-item>
         <b-tab-item>
           <template slot="header">
-            <router-link id="route_names" v-bind:key="1" :to="`/Projects`">
+            <router-link id="route_names" v-bind:key="1" :to="`/projects`">
               <b-icon icon="view-dashboard"></b-icon>
               <span class="route_text">Projects</span>
             </router-link>
@@ -23,7 +23,7 @@
         </b-tab-item>
         <b-tab-item>
           <template slot="header">
-            <router-link id="route_names" v-bind:key="2" :to="`/Contact`">
+            <router-link id="route_names" v-bind:key="2" :to="`/contact`">
               <b-icon icon="account"></b-icon>
               <span class="route_text">Contact</span>
             </router-link>
@@ -44,17 +44,17 @@ export default {
         {
           id: 0,
           text: 'Home',
-          page: '/Home'
+          page: '/home'
         },
         {
           id: 1,
           text: 'Projects',
-          page: '/Projects'
+          page: '/projects'
         },
         {
           id: 2,
           text: 'Contact',
-          page: '/Contact'
+          page: '/contact'
         }
       ]
     }
