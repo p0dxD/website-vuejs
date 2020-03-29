@@ -68,7 +68,7 @@ small {
 .dot {
   height: 200px;
   width: 200px;
-  background-image: url("https://media.licdn.com/dms/image/C4E03AQGLKKA9_d_GaQ/profile-displayphoto-shrink_200_200/0?e=1583366400&v=beta&t=TS_C_E9vBdwWdNnDcHTJQqdNf8vkB4-zJlSPoqy3J-M");
+  background-image:url("../assets/me_2.png");
   border-radius: 50%;
   display: inline-block;
   background-size: 200px 200px;
@@ -86,13 +86,15 @@ small {
   z-index: 100;
 }
 .home_image {
-  border: dashed;
   z-index: -10;
   position: absolute;
   width: 100%;
   height: 300px;
   top: 79px;
-  background-image: url(https://demos.creative-tim.com/vue-material-kit-pro/img/city-profile.3b3fb65f.jpg);
+  background-image: url("../assets/nyc.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @media screen and (max-width: 900px) and (min-width: 600px) {

@@ -17,4 +17,7 @@ docker:
                 KEYSTORE_ALIAS: '$KEYSTORE_ALIAS'
                 KEYSTORE_PASSWORD: '$KEYSTORE_PASSWORD'
                 SPRING_PROFILES_ACTIVE: prod
+                KEYSTORE: '$PRIVATE_KEY_P12'
+                KEYSTORE_JAVA_TYPE: '$KEYSTORE_JAVA_TYPE'
+
 
