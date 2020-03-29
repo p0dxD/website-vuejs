@@ -13,11 +13,11 @@ docker:
             ports:
                 - 49160:49160
             environment:
-                GITHUB_TOKEN: '$GITHUB_TOKEN'
-                KEYSTORE_ALIAS: '$KEYSTORE_ALIAS'
-                KEYSTORE_PASSWORD: '$KEYSTORE_PASSWORD'
+                GITHUB_TOKEN: '$GITHUB_TOKEN_SECRET'
+                KEYSTORE_ALIAS: '$KEYSTORE_ALIAS_SECRET'
+                KEYSTORE_PASSWORD: '$KEYSTORE_PASSWORD_SECRET'
                 SPRING_PROFILES_ACTIVE: prod
-                KEYSTORE: '$PRIVATE_KEY_P12'
-                KEYSTORE_JAVA_TYPE: '$KEYSTORE_JAVA_TYPE'
+                KEYSTORE: '$PRIVATE_KEY_P12_SECRET'
+                KEYSTORE_JAVA_TYPE: '$KEYSTORE_JAVA_TYPE_SECRET'
 
 
