@@ -1,22 +1,33 @@
 <template>
   <div id="container">
     <nav>
-      <div class="name"><h1>Jose Rodriguez</h1></div>
-       <b-tabs type="is-boxed" :position=nav_position class="block">
+      <div class="name">
+        <h1>Jose Rodriguez</h1>
+      </div>
+      <b-tabs type="is-boxed" :position="nav_position" class="block">
         <b-tab-item>
-            <template slot="header">
-                 <router-link  id="route_names" v-bind:key="0" :to="`/Home`"><b-icon icon="home"></b-icon><span class="route_text">Home</span></router-link>
-            </template>
+          <template slot="header">
+            <router-link id="route_names" v-bind:key="0" :to="`/home`">
+              <b-icon icon="home"></b-icon>
+              <span class="route_text">Home</span>
+            </router-link>
+          </template>
         </b-tab-item>
         <b-tab-item>
-            <template slot="header">
-                  <router-link  id="route_names" v-bind:key="1" :to="`/Projects`"> <b-icon icon="view-dashboard"></b-icon><span class="route_text">Projects</span></router-link>
-            </template>
+          <template slot="header">
+            <router-link id="route_names" v-bind:key="1" :to="`/projects`">
+              <b-icon icon="view-dashboard"></b-icon>
+              <span class="route_text">Projects</span>
+            </router-link>
+          </template>
         </b-tab-item>
         <b-tab-item>
-            <template slot="header">
-                  <router-link  id="route_names" v-bind:key="2" :to="`/Contact`"> <b-icon icon="account"></b-icon><span class="route_text">Contact</span></router-link>
-            </template>
+          <template slot="header">
+            <router-link id="route_names" v-bind:key="2" :to="`/contact`">
+              <b-icon icon="account"></b-icon>
+              <span class="route_text">Contact</span>
+            </router-link>
+          </template>
         </b-tab-item>
       </b-tabs>
     </nav>
@@ -33,32 +44,32 @@ export default {
         {
           id: 0,
           text: 'Home',
-          page: '/Home'
+          page: '/home'
         },
         {
           id: 1,
           text: 'Projects',
-          page: '/Projects'
+          page: '/projects'
         },
         {
           id: 2,
           text: 'Contact',
-          page: '/Contact'
+          page: '/contact'
         }
       ]
     }
   },
   created () {
-    window.addEventListener('resize', this.myEventHandler)
+    window.addEventListener('resize', this.sizeHandler)
   },
   destroyed () {
-    window.removeEventListener('resize', this.myEventHandler)
+    window.removeEventListener('resize', this.sizeHandler)
   },
   mounted () {
-    this.myEventHandler('test')
+    this.sizeHandler('test')
   },
   methods: {
-    myEventHandler (e) {
+    sizeHandler (e) {
       var w = window.innerWidth
       if (w < 469) {
         this.nav_position = 'is-centered'
@@ -71,33 +82,36 @@ export default {
 </script>
 
 <style>
-  nav {
-    text-align: end;
-    position: relative;
-    top: -15px;
-
-  }
-  .spacing {
-    Margin-right: 10px;
-    position: relative;
-    top: -18px;
-  }
-  .name {
-    text-align: left;
-    text-indent: 50px;
-    letter-spacing: 3px;
-    text-transform: capitalize;
-    text-align: justify;
-    font-size: 30px;
-    position: relative;
-    top: 35px;
-    height: 50px;
-  }
-  #route_names {
-    border-top: none;
-    border-left: none;
-    border-right: none;
+nav {
+  text-align: end;
+  position: relative;
+  top: -15px;
 }
+.spacing {
+  margin-right: 10px;
+  position: relative;
+  top: -18px;
+}
+.name {
+  text-align: left;
+  text-indent: 50px;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  text-align: justify;
+  font-size: 30px;
+  position: relative;
+  top: 35px;
+  height: 50px;
+}
+#route_names {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+#container {
+  padding-bottom: 4em;
+}
+
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .name {
     font-size: 20px;
