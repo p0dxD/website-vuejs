@@ -1,15 +1,15 @@
 projects:
-    -
-        name: p0dxd/website
-        path: front-end
-        version: 1.0.0
-        stages:
-            build:
-                tool: node
-                version: 14.5
-            upload:
-                tool: docker
-                version: ~
+    # -
+    #     name: p0dxd/website
+    #     path: front-end
+    #     version: 1.0.0
+    #     stages:
+    #         build:
+    #             tool: node
+    #             version: 14.5
+    #         upload:
+    #             tool: docker
+    #             version: ~
     -
         name: p0dxd/website-backend
         path: back-end
