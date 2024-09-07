@@ -17,7 +17,7 @@ projects:
         stages:
             build:
                 tool: gradle
-                version: 6.2.1
+                version: 6.2.2-jre8
             upload:
                 tool: docker
                 version: ~
